@@ -2,16 +2,14 @@ const config = require('./utils/config')
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const logger = require('./utils/logger')
+
+const Blog = require('../models/blog')
+
 const mongoose = require('mongoose')
+mongoose.set('strictQuery', false)
 
-const blogSchema = new mongoose.Schema({
-  title: String,
-  author: String,
-  url: String,
-  likes: Number,
-})
-
-const Blog = mongoose.model('Blog', blogSchema)
+logger.info('connecting to', config.MONGODB_URI)
 
 mongoose.connect(config.MONGODB_URI)
 
