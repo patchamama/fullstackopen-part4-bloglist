@@ -34,6 +34,38 @@ const mostBlogs = (blogs) => {
   }
 }
 
+const mostBlogsVanilla = (blogs) => {
+  if (blogs.length === 0) return { author: undefined, entries: 0 }
+  else if (blogs.length === 1) return { author: blogs[0].author, entries: 1 }
+  else {
+    const groupByAuthor = blogs.reduce((result, item) => {
+      if (result[item.author]) {
+        result[item.author] += 1
+      } else {
+        result[item.author] = 1
+      }
+      return result
+    }, {})
+
+    console.log(groupByAuthor)
+
+    let authorMoreBlogs = ''
+
+    for (const author in groupByAuthor) {
+      authorMoreBlogs = authorMoreBlogs === '' ? author : authorMoreBlogs
+      if (groupByAuthor[author] > groupByAuthor[authorMoreBlogs]) {
+        authorMoreBlogs = author
+      }
+    }
+
+    console.log(authorMoreBlogs, '-', groupByAuthor[authorMoreBlogs])
+    return {
+      author: authorMoreBlogs,
+      entries: groupByAuthor[authorMoreBlogs],
+    }
+  }
+}
+
 const mostLikes = (blogs) => {
   if (blogs.length === 0) return { author: undefined, likes: undefined }
   else if (blogs.length === 1)
@@ -56,10 +88,44 @@ const mostLikes = (blogs) => {
   }
 }
 
+const mostLikesVanilla = (blogs) => {
+  if (blogs.length === 0) return { author: undefined, likes: undefined }
+  else if (blogs.length === 1)
+    return { author: blogs[0].author, likes: blogs[0].likes }
+  else {
+    const groupByAuthor = blogs.reduce((result, item) => {
+      if (result[item.author]) {
+        result[item.author] += item.likes
+      } else {
+        result[item.author] = item.likes
+      }
+      return result
+    }, {})
+
+    console.log(groupByAuthor)
+
+    let authorMoreLikes = ''
+
+    for (const author in groupByAuthor) {
+      authorMoreLikes = authorMoreLikes === '' ? author : authorMoreLikes
+      if (groupByAuthor[author] > groupByAuthor[authorMoreLikes]) {
+        authorMoreLikes = author
+      }
+    }
+
+    return {
+      author: authorMoreLikes,
+      likes: groupByAuthor[authorMoreLikes],
+    }
+  }
+}
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
   mostBlogs,
   mostLikes,
+  mostBlogsVanilla,
+  mostLikesVanilla,
 }
