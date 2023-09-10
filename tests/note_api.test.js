@@ -54,6 +54,27 @@ test('unknown endpoint in api url', async () => {
   expect(response.body.error).toBe('unknown endpoint')
 })
 
+test('unique identifier property of the blog posts is named id,', async () => {
+  const response = await api.get('/api/blogs')
+  const contents = response.body[0]
+  //   console.log(contents)
+  expect(contents.id).toBeDefined()
+})
+
+// test('blog without title is not added', async () => {
+//   const newBlog = {
+//     author: 'A. Pacheco',
+//     url: 'https://unlibroenmimochila.blogspot.com/2017/12/fugas-o-la-ansiedad-de-sentirse-vivo.html',
+//     likes: 4,
+//   }
+
+//   await api.post('/api/blogs').send(newBlog).expect(400)
+
+//   const response = await api.get('/api/blogs')
+
+//   expect(response.body).toHaveLength(initialBlogs.length)
+// })
+
 afterAll(async () => {
   await mongoose.connection.close()
 })
