@@ -120,13 +120,6 @@ describe('viewing a specific blog', () => {
   })
 })
 
-test('unknown endpoint in api url', async () => {
-  const response = await api.get('/api/blogs-url-dont-exist')
-  //   console.log(response.body)
-
-  expect(response.body.error).toBe('unknown endpoint')
-})
-
 describe('deletion of a blog', () => {
   test('succeeds with status code 204 if id is valid', async () => {
     const blogsAtStart = await helper.blogsInDb()
@@ -142,6 +135,56 @@ describe('deletion of a blog', () => {
 
     expect(contents).not.toContain(blogToDelete.title)
   })
+})
+
+describe('updating of a blog entry', () => {
+  test('succeeds with status code 200 with likes update', async () => {
+    const blogsAtStart = await helper.blogsInDb()
+    let blogToUpdate = blogsAtStart[0]
+    blogToUpdate.likes = 100
+
+    await api
+      .put(`/api/blogs/${blogToUpdate.id}`)
+      .send(blogToUpdate)
+      .expect(200)
+
+    const blogsAtEnd = await helper.blogsInDb()
+
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)
+
+    const contents = blogsAtEnd.map((r) => r.likes)
+
+    expect(contents).toContain(blogToUpdate.likes)
+  })
+
+  test('succeeds with status code 200 title and url update', async () => {
+    const blogsAtStart = await helper.blogsInDb()
+    let blogToUpdate = blogsAtStart[0]
+    blogToUpdate.title = 'test title'
+    blogToUpdate.url = 'test url'
+
+    await api
+      .put(`/api/blogs/${blogToUpdate.id}`)
+      .send(blogToUpdate)
+      .expect(200)
+
+    const blogsAtEnd = await helper.blogsInDb()
+
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)
+
+    const contents = blogsAtEnd.map((r) => r.title)
+    expect(contents).toContain(blogToUpdate.title)
+
+    const contents2 = blogsAtEnd.map((r) => r.url)
+    expect(contents2).toContain(blogToUpdate.url)
+  })
+})
+
+test('unknown endpoint in api url', async () => {
+  const response = await api.get('/api/blogs-url-dont-exist')
+  //   console.log(response.body)
+
+  expect(response.body.error).toBe('unknown endpoint')
 })
 
 afterAll(async () => {
