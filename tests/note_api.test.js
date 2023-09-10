@@ -99,6 +99,31 @@ test('if the likes property is missing from the request, it will default to the 
   }
 })
 
+test('if the title or url are missing from the request data, the backend responds 400 Bad Request', async () => {
+  // url is missing
+  let response = await api.post('/api/blogs').send({
+    title: 'test title',
+    author: 'A. Pacheco',
+    likes: 4,
+  })
+  expect(response.status).toBe(400)
+
+  // title is missing
+  response = await api.post('/api/blogs').send({
+    author: 'A. Pacheco',
+    likes: 4,
+    url: 'https://unlibroenmimochila.blogspot.com/2017/12/fugas-o-la-ansiedad-de-sentirse-vivo.html',
+  })
+  expect(response.status).toBe(400)
+
+  // both are missing (title and url)
+  response = await api.post('/api/blogs').send({
+    author: 'A. Pacheco',
+    likes: 4,
+  })
+  expect(response.status).toBe(400)
+})
+
 // test('blog without title is not added', async () => {
 //   const newBlog = {
 //     author: 'A. Pacheco',
