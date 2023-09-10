@@ -54,6 +54,28 @@ test('unknown endpoint in api url', async () => {
   expect(response.body.error).toBe('unknown endpoint')
 })
 
+test('a valid blog can be added', async () => {
+  const newBlog = {
+    title: 'Fugas o la ansiedad de sentirse vivo',
+    author: 'A. Pacheco',
+    url: 'https://unlibroenmimochila.blogspot.com/2017/12/fugas-o-la-ansiedad-de-sentirse-vivo.html',
+    likes: 4,
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const response = await api.get('/api/blogs')
+
+  const contents = response.body.map((r) => r.title)
+
+  expect(response.body).toHaveLength(initialBlogs.length + 1)
+  expect(contents).toContain('Fugas o la ansiedad de sentirse vivo')
+})
+
 test('unique identifier property of the blog posts is named id,', async () => {
   const response = await api.get('/api/blogs')
   const contents = response.body[0]
