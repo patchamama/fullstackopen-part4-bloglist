@@ -67,6 +67,30 @@ describe('viewing a specific blog', () => {
     expect(contents).toContain('Fugas o la ansiedad de sentirse vivo')
   })
 
+  test('check if the get id is correct', async () => {
+    const blogsAtStart = await helper.blogsInDb()
+    let blogToCheck = blogsAtStart[0]
+
+    const response = await api
+      .get(`/api/blogs/${blogToCheck.id}`)
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+
+    expect(response.body).toEqual(blogToCheck)
+  })
+
+  test('fails with statuscode 404 if blog does not exist', async () => {
+    const validNonexistingId = await helper.nonExistingId()
+
+    await api.get(`/api/blogs/${validNonexistingId}`).expect(404)
+  })
+
+  test('fails with statuscode 400 if id is invalid', async () => {
+    const invalidId = '5a3d5da59220081a82a3445'
+
+    await api.get(`/api/blogs/${invalidId}`).expect(400)
+  })
+
   test('unique identifier property of the blog posts is named id,', async () => {
     const response = await api.get('/api/blogs')
     const contents = response.body[0]
