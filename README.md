@@ -23,7 +23,7 @@ npm test
 ## b. Testing the backend
 
 - [Exercises 4.8.-4.12.](https://fullstackopen.com/es/part4/probando_el_backend#ejercicios-4-8-4-12)
-  _Details solutions: [4.8](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/f4361d4a4973e98d2368596056f9257e1487565d) | [4.9](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/6b9903229f75ed7def60d4f81a386e61997a9341) | [4.10]() | [4.11]() | [4.12]()_
+  _Details solutions: [4.8](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/f4361d4a4973e98d2368596056f9257e1487565d) | [4.9](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/6b9903229f75ed7def60d4f81a386e61997a9341) | [4.10](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/d9fe5ba9dffc9e2d5c1b74bb88028436dd4629eb) | [4.11]() | [4.12]()_
 
 ## c. User administration
 

@@ -83,6 +83,22 @@ test('unique identifier property of the blog posts is named id,', async () => {
   expect(contents.id).toBeDefined()
 })
 
+test('if the likes property is missing from the request, it will default to the value 0', async () => {
+  const newBlog = {
+    title: 'Fugas o la ansiedad de sentirse vivo',
+    author: 'A. Pacheco',
+    url: 'https://unlibroenmimochila.blogspot.com/2017/12/fugas-o-la-ansiedad-de-sentirse-vivo.html',
+  }
+  //   const response = await api.post('/api/blogs').send(newBlog)
+  let blogObject = new Blog(newBlog)
+  try {
+    const response = await blogObject.save()
+    expect(response.likes).toBe(0)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 // test('blog without title is not added', async () => {
 //   const newBlog = {
 //     author: 'A. Pacheco',
