@@ -6,6 +6,11 @@ blogsRouter.get('/', async (request, response) => {
   response.json(blogs)
 })
 
+blogsRouter.delete('/:id', async (request, response) => {
+  await Blog.findByIdAndRemove(request.params.id)
+  response.status(204).end()
+})
+
 blogsRouter.post('/', async (request, response) => {
   request.body.likes = request.body.likes || 0
   if (!request.body.title || !request.body.url) {

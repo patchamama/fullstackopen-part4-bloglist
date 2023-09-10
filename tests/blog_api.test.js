@@ -127,19 +127,22 @@ test('unknown endpoint in api url', async () => {
   expect(response.body.error).toBe('unknown endpoint')
 })
 
-// test('blog without title is not added', async () => {
-//   const newBlog = {
-//     author: 'A. Pacheco',
-//     url: 'https://unlibroenmimochila.blogspot.com/2017/12/fugas-o-la-ansiedad-de-sentirse-vivo.html',
-//     likes: 4,
-//   }
+describe('deletion of a blog', () => {
+  test('succeeds with status code 204 if id is valid', async () => {
+    const blogsAtStart = await helper.blogsInDb()
+    const blogToDelete = blogsAtStart[0]
 
-//   await api.post('/api/blogs').send(newBlog).expect(400)
+    await api.delete(`/api/blogs/${blogToDelete.id}`).expect(204)
 
-//   const response = await api.get('/api/blogs')
+    const blogsAtEnd = await helper.blogsInDb()
 
-//   expect(response.body).toHaveLength(initialBlogs.length)
-// })
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length - 1)
+
+    const contents = blogsAtEnd.map((r) => r.title)
+
+    expect(contents).not.toContain(blogToDelete.title)
+  })
+})
 
 afterAll(async () => {
   await mongoose.connection.close()
