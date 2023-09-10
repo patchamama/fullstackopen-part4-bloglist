@@ -118,7 +118,7 @@ describe('Authors with more blogs', () => {
   test('lodash - with empty list', () => {
     const blogs = [{}]
     const result = listHelper.mostBlogs(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: undefined, entries: 1 })
   })
 
@@ -134,13 +134,13 @@ describe('Authors with more blogs', () => {
       },
     ]
     const result = listHelper.mostBlogs(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Robert C. Martin', entries: 1 })
   })
 
   test('lodash - with big list', () => {
     const result = listHelper.mostBlogs(bigbloglist)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Robert C. Martin', entries: 3 })
   })
 
@@ -148,7 +148,7 @@ describe('Authors with more blogs', () => {
   test('Vanilla JS - with empty list', () => {
     const blogs = [{}]
     const result = listHelper.mostBlogsVanilla(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: undefined, entries: 1 })
   })
 
@@ -164,13 +164,13 @@ describe('Authors with more blogs', () => {
       },
     ]
     const result = listHelper.mostBlogsVanilla(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Robert C. Martin', entries: 1 })
   })
 
   test('Vanilla JS - with big list', () => {
     const result = listHelper.mostBlogsVanilla(bigbloglist)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Robert C. Martin', entries: 3 })
   })
 })
@@ -179,7 +179,7 @@ describe('Authors with more likes', () => {
   test('lodash - with empty list', () => {
     const blogs = [{}]
     const result = listHelper.mostLikes(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: undefined, likes: undefined })
   })
 
@@ -195,13 +195,13 @@ describe('Authors with more likes', () => {
       },
     ]
     const result = listHelper.mostLikes(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Robert C. Martin', likes: 2 })
   })
 
   test('lodash - with big blog list', () => {
     const result = listHelper.mostLikes(bigbloglist)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Edsger W. Dijkstra', likes: 17 })
   })
 
@@ -209,7 +209,7 @@ describe('Authors with more likes', () => {
   test('VanillaJS - with empty list', () => {
     const blogs = [{}]
     const result = listHelper.mostLikesVanilla(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: undefined, likes: undefined })
   })
 
@@ -225,13 +225,13 @@ describe('Authors with more likes', () => {
       },
     ]
     const result = listHelper.mostLikesVanilla(blogs)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Robert C. Martin', likes: 2 })
   })
 
   test('VanillaJS -with big blog list', () => {
     const result = listHelper.mostLikesVanilla(bigbloglist)
-    console.log(result)
+    // console.log(result)
     expect(result).toEqual({ author: 'Edsger W. Dijkstra', likes: 17 })
   })
 })

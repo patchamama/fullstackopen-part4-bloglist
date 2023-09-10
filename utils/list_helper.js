@@ -29,7 +29,7 @@ const mostBlogs = (blogs) => {
       author,
       entries: blogs.length,
     }))
-    console.log(_.maxBy(authorEntries, 'entries'))
+    // console.log(_.maxBy(authorEntries, 'entries'))
     return _.maxBy(authorEntries, 'entries')
   }
 }
@@ -47,7 +47,7 @@ const mostBlogsVanilla = (blogs) => {
       return result
     }, {})
 
-    console.log(groupByAuthor)
+    // console.log(groupByAuthor)
 
     let authorMoreBlogs = ''
 
@@ -58,7 +58,7 @@ const mostBlogsVanilla = (blogs) => {
       }
     }
 
-    console.log(authorMoreBlogs, '-', groupByAuthor[authorMoreBlogs])
+    // console.log(authorMoreBlogs, '-', groupByAuthor[authorMoreBlogs])
     return {
       author: authorMoreBlogs,
       entries: groupByAuthor[authorMoreBlogs],
@@ -102,7 +102,7 @@ const mostLikesVanilla = (blogs) => {
       return result
     }, {})
 
-    console.log(groupByAuthor)
+    // console.log(groupByAuthor)
 
     let authorMoreLikes = ''
 
