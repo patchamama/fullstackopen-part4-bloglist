@@ -32,4 +32,7 @@ npm test
 
 ## d. Token authentication
 
+- [Exercises 4.15.-4.23.](https://fullstackopen.com/en/part4/token_authentication#exercises-4-15-4-23)
+  _Details solutions: [4.15](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/5ec001cec3b44f41a111681af2ae785289d76b6d) | [4.16]() | [4.17]() | [4.18]() | [4.19]() | [4.20]() | [4.21]() | [4.22]() | [4.23]()_
+
 # Deploy
