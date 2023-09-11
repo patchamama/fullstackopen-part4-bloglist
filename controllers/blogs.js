@@ -37,7 +37,7 @@ blogsRouter.delete('/:id', async (request, response) => {
   if (!request.token || !decodedToken.id) {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
-  console.log(decodedToken)
+  // console.log(decodedToken)
 
   // Check if the user is the creator of the blog
   const blog = await Blog.findById(request.params.id)
