@@ -33,6 +33,6 @@ npm test
 ## d. Token authentication
 
 - [Exercises 4.15.-4.23.](https://fullstackopen.com/en/part4/token_authentication#exercises-4-15-4-23)
-  _Solution details: [4.15](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/5ec001cec3b44f41a111681af2ae785289d76b6d) | [4.16](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/7839750f9aa7d52deaa62b6d8a8eafa46dd98ca1) | [4.17](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/fd871d2de79352ff62c26c6aeec438fe43f7167a) | [4.18](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/530d7c2eab9c8ce3bbfd2220e904290e28f9b262) | [4.19](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/41f1994a2a145dc97b01e4477efb8b689d626c47) | [4.20]() | [4.21]() | [4.22]() | [4.23]()_
+  _Solution details: [4.15](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/5ec001cec3b44f41a111681af2ae785289d76b6d) | [4.16](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/7839750f9aa7d52deaa62b6d8a8eafa46dd98ca1) | [4.17](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/fd871d2de79352ff62c26c6aeec438fe43f7167a) | [4.18](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/530d7c2eab9c8ce3bbfd2220e904290e28f9b262) | [4.19](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/41f1994a2a145dc97b01e4477efb8b689d626c47) | [4.20](https://github.com/patchamama/fullstackopen-part4-bloglist/commit/b2327ebc80681aa98b7e7c0826345872a6fdb647) | [4.21]() | [4.22]() | [4.23]()_
 
 # Deploy

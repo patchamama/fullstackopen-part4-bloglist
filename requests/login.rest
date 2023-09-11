@@ -9,7 +9,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY0ZmVkMjkyM2EyMDYzZGIyYzAzYmJjNyIsImlhdCI6MTY5NDQyNTEwNX0.J1lyBzrEizM3tZTm_Ah2-GJlvk9XK8nPn-c15_UBvCU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY0ZmVkMjkyM2EyMDYzZGIyYzAzYmJjNyIsImlhdCI6MTY5NDQyNzU1NywiZXhwIjoxNjk0NDMxMTU3fQ.9eLl25wQMCqNQe6nO5iwzl55acVECBxuClcX4pYkvDs
 
 {
   "title": "Fugas o la ansiedad de sentirse vivo",
@@ -18,3 +18,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb
   "likes": 4,
   "userId": "64fed2923a2063db2c03bbc7"
 }
+
+###
+DELETE http://localhost:3003/api/blogs/64fed470740222927b47569f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY0ZmVkMjkyM2EyMDYzZGIyYzAzYmJjNyIsImlhdCI6MTY5NDQyNzU1NywiZXhwIjoxNjk0NDMxMTU3fQ.9eLl25wQMCqNQe6nO5iwzl55acVECBxuClcX4pYkvDs
